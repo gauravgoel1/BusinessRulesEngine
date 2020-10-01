@@ -74,5 +74,15 @@ namespace OrderProcessingEngine.Test
             Assert.IsTrue(result.Count == 1);
             Assert.IsTrue(result.Contains(TypeOfActionAgainstOrder.AddFreeAidVideoToPackagingSlip));
         }
+
+        [TestMethod]
+        public void VerfiyParsingAndProcessing()
+        {
+            var productproces = new ProcessProduct();
+            var result = productproces.Process("LearningToSkiVideo");
+
+            Assert.IsTrue(result.Count == 1);
+            Assert.IsTrue(result.Contains(TypeOfActionAgainstOrder.AddFreeAidVideoToPackagingSlip));
+        }
     }
 }
