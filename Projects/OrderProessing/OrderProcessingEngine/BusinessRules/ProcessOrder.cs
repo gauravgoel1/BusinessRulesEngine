@@ -4,7 +4,7 @@ using System.Text;
 
 namespace OrderProcessingEngine.BusinessRules
 {
-    abstract class ProcessOrder
+    public abstract class ProcessOrder
     {
 
         protected ProcessOrder(ProcessOrder nextRule, TypeOfProduct typeOfProduct)
@@ -14,8 +14,24 @@ namespace OrderProcessingEngine.BusinessRules
         }
 
         protected TypeOfProduct TypeofProduct { get; }
+        protected readonly TypeOfProduct TypeOfRule;
 
-        protected abstract void Process();
+
+        internal List<TypeOfActionAgainstOrder> VerifyRuleAndProcess()
+        {
+            var listOFActions = new List<TypeOfActionAgainstOrder>();
+            if(TypeofProduct == TypeOfRule)
+            {
+                listOFActions= this.Process();
+            }
+            else if(NextRule != null)
+            {
+                listOFActions= NextRule.VerifyRuleAndProcess();
+            }
+            return listOFActions;
+        }
+
+        protected abstract List<TypeOfActionAgainstOrder> Process();
 
         protected ProcessOrder NextRule { get; }
     }
