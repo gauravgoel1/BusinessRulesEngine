@@ -11,7 +11,8 @@ namespace OrderProcessingEngine.BusinessRules
         public List<TypeOfActionAgainstOrder> RunRules(TypeOfProduct product)
         {
             List<TypeOfActionAgainstOrder> result = null;
-            var upgradeMembershipRule = new UpgradeMembershipRule(null, product);
+            var learningToSkiVideoRule = new LearningToSkiVideoRule(null, product);
+            var upgradeMembershipRule = new UpgradeMembershipRule(learningToSkiVideoRule, product);
             var newMembershipRule = new NewMembershipRule(upgradeMembershipRule, product);
             var bookRule = new BookRule(newMembershipRule, product);
             var ruleChain = new PhysicalProductRule(bookRule, product);
