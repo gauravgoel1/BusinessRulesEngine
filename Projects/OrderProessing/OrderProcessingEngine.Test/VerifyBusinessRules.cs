@@ -9,13 +9,17 @@ namespace OrderProcessingEngine.Test
     [TestClass]
     public class VerifyBusinessRules
     {
-
+        RunRuleEngine engine = null;
+        [TestInitialize]
+        public void Initialize()
+        {
+            engine = new RunRuleEngine();
+        }
 
         [TestMethod]
         public void VerifyPhysicalProductOrder()
         {
-            var runRuleEngine = new RunRuleEngine();
-            var result = runRuleEngine.RunRules(TypeOfProduct.PhysicalProduct);
+            var result = engine.RunRules(TypeOfProduct.PhysicalProduct);
 
             Assert.IsTrue(result.Count == 2);
 
@@ -28,8 +32,7 @@ namespace OrderProcessingEngine.Test
         [TestMethod]
         public void VerifyBookOrder()
         {
-            var runRuleEngine = new RunRuleEngine();
-            var result = runRuleEngine.RunRules(TypeOfProduct.Book);
+            var result = engine.RunRules(TypeOfProduct.Book);
 
             Assert.IsTrue(result.Count == 2);
 
@@ -41,8 +44,7 @@ namespace OrderProcessingEngine.Test
         [TestMethod]
         public void VerifyNewMembershipOrder()
         {
-            var runRuleEngine = new RunRuleEngine();
-            var result = runRuleEngine.RunRules(TypeOfProduct.Membership);
+            var result = engine.RunRules(TypeOfProduct.Membership);
 
             Assert.IsTrue(result.Count == 2);
 
@@ -56,8 +58,7 @@ namespace OrderProcessingEngine.Test
         [TestMethod]
         public void VerifyUpgadeMembershipOrder()
         {
-            var runRuleEngine = new RunRuleEngine();
-            var result = runRuleEngine.RunRules(TypeOfProduct.UpgradeMembership);
+            var result = engine.RunRules(TypeOfProduct.UpgradeMembership);
 
             Assert.IsTrue(result.Count == 2);
             Assert.IsTrue(result.Contains(TypeOfActionAgainstOrder.UpgradeMembership));
@@ -68,8 +69,7 @@ namespace OrderProcessingEngine.Test
         [TestMethod]
         public void VerifyVideoOrder()
         {
-            var runRuleEngine = new RunRuleEngine();
-            var result = runRuleEngine.RunRules(TypeOfProduct.LearningToSkiVideo);
+            var result = engine.RunRules(TypeOfProduct.LearningToSkiVideo);
 
             Assert.IsTrue(result.Count == 1);
             Assert.IsTrue(result.Contains(TypeOfActionAgainstOrder.AddFreeAidVideoToPackagingSlip));
