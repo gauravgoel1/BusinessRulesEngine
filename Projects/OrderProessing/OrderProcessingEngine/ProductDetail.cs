@@ -19,12 +19,12 @@ namespace OrderProcessingEngine
 
     public class ProductDetail
     {
-
-
         public TypeOfProduct? GetTypeOfProductFromName(string productName)
         {
-
-
+            if (Enum.TryParse(typeof(TypeOfProduct), productName, true, out object result))
+            {
+                return (TypeOfProduct?)result;
+            }
             return null;
         }
     }
