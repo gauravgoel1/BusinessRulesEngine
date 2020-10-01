@@ -11,8 +11,9 @@ namespace OrderProcessingEngine.BusinessRules
         public List<TypeOfActionAgainstOrder> RunRules(TypeOfProduct product)
         {
             List<TypeOfActionAgainstOrder> result = null;
-            var physicalProductRule = new PhysicalProductRule(null, product);
-            result = physicalProductRule.VerifyRuleAndProcess();
+            var bookRule = new BookRule(null, product);
+            var ruleChain = new PhysicalProductRule(bookRule, product);
+            result = ruleChain.VerifyRuleAndProcess();
             return result;
 
         }

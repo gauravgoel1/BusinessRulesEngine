@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30517.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderProessing", "OrderProessing\OrderProessing.csproj", "{7C013ACA-45CE-4315-9CA0-DD4B9BB1B41E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderProcessing", "OrderProessing\OrderProcessing.csproj", "{7C013ACA-45CE-4315-9CA0-DD4B9BB1B41E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderProcessingEngine", "OrderProcessingEngine\OrderProcessingEngine.csproj", "{DF155F3A-3540-4945-AB2E-1526DA5F50B5}"
 EndProject
