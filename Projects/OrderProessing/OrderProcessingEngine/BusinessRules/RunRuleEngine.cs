@@ -6,7 +6,7 @@ namespace OrderProcessingEngine.BusinessRules
 {
     public class RunRuleEngine
     {
-        public List<TypeOfActionAgainstOrder> RunRules(TypeOfProduct product)
+        public List<TypeOfActionAgainstOrder> RunRulesForProduct(TypeOfProduct product)
         {
             var learningToSkiVideoRule = new LearningToSkiVideoRule(null, product);
             var upgradeMembershipRule = new UpgradeMembershipRule(learningToSkiVideoRule, product);
@@ -16,5 +16,7 @@ namespace OrderProcessingEngine.BusinessRules
             return ruleChain.VerifyRuleAndProcess();
 
         }
+
+
     }
 }

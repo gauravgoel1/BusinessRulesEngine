@@ -18,6 +18,13 @@ namespace OrderProcessingEngine.Test
 
 
 
+        [TestMethod]
+        public void ValidateCaseInsensitiveProductParsing()
+        {
+            ProductDetail productDetail = new ProductDetail();
+            var productType = productDetail.GetTypeOfProductFromName("membership");
+            Assert.IsTrue(productType != null && productType == TypeOfProduct.Membership);
+        }
 
         [TestMethod]
         public void VerifyInvalidProductParsing()

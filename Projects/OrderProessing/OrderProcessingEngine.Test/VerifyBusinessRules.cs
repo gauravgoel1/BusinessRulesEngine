@@ -19,7 +19,7 @@ namespace OrderProcessingEngine.Test
         [TestMethod]
         public void VerifyPhysicalProductOrder()
         {
-            var result = engine.RunRules(TypeOfProduct.PhysicalProduct);
+            var result = engine.RunRulesForProduct(TypeOfProduct.PhysicalProduct);
 
             Assert.IsTrue(result.Count == 2);
 
@@ -32,7 +32,7 @@ namespace OrderProcessingEngine.Test
         [TestMethod]
         public void VerifyBookOrder()
         {
-            var result = engine.RunRules(TypeOfProduct.Book);
+            var result = engine.RunRulesForProduct(TypeOfProduct.Book);
 
             Assert.IsTrue(result.Count == 2);
 
@@ -44,7 +44,7 @@ namespace OrderProcessingEngine.Test
         [TestMethod]
         public void VerifyNewMembershipOrder()
         {
-            var result = engine.RunRules(TypeOfProduct.Membership);
+            var result = engine.RunRulesForProduct(TypeOfProduct.Membership);
 
             Assert.IsTrue(result.Count == 2);
 
@@ -58,7 +58,7 @@ namespace OrderProcessingEngine.Test
         [TestMethod]
         public void VerifyUpgadeMembershipOrder()
         {
-            var result = engine.RunRules(TypeOfProduct.UpgradeMembership);
+            var result = engine.RunRulesForProduct(TypeOfProduct.UpgradeMembership);
 
             Assert.IsTrue(result.Count == 2);
             Assert.IsTrue(result.Contains(TypeOfActionAgainstOrder.UpgradeMembership));
@@ -69,7 +69,7 @@ namespace OrderProcessingEngine.Test
         [TestMethod]
         public void VerifyVideoOrder()
         {
-            var result = engine.RunRules(TypeOfProduct.LearningToSkiVideo);
+            var result = engine.RunRulesForProduct(TypeOfProduct.LearningToSkiVideo);
 
             Assert.IsTrue(result.Count == 1);
             Assert.IsTrue(result.Contains(TypeOfActionAgainstOrder.AddFreeAidVideoToPackagingSlip));
