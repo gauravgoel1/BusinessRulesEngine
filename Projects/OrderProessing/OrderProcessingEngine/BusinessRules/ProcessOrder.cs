@@ -14,7 +14,7 @@ namespace OrderProcessingEngine.BusinessRules
         }
 
         protected TypeOfProduct TypeofProduct { get; }
-        protected readonly TypeOfProduct TypeOfRule;
+        protected abstract TypeOfProduct TypeOfRule { get; set; }
 
 
         internal List<TypeOfActionAgainstOrder> VerifyRuleAndProcess()
